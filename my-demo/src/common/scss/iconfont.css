@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("../fonts/iconfont.eot?t=1529571163938");
+  /* IE9*/
+  src: url("../fonts/iconfont.eot?t=1529571163938#iefix") format("embedded-opentype"), url("../fonts/iconfont.svg?t=1529571163938#iconfont") format("svg"), url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAA/YAAsAAAA") format("woff"), url("../fonts/iconfont.ttf?t=1529571163938") format("truetype");
+  /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e610";
+}
+
+.icon-menu:before {
+  content: "\e652";
+}
+
+.icon-wangyiyunyinyuemusic1193417easyiconnet:before {
+  content: "\e650";
+}
+
+.icon-music:before {
+  content: "\e680";
+}
+
+.icon-video:before {
+  content: "\e977";
+}
