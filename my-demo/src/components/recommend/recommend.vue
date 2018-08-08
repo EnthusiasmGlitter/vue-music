@@ -1,6 +1,5 @@
 <template>
   <div class="recommend">
-    <h1>123</h1>
     <div class="recommend-list" ref="recommendList">
       <h1 class="title">推荐歌单</h1>
       <ul>
