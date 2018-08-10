@@ -21,12 +21,14 @@
     <div class="recommend-song" ref="recommendSong">
       <h1 class="title">最近新曲</h1>
       <ul>
-        <li class="item" v-for="item in recommendMusic.slice(0, 6)" :key="item.id">
-          <div class="icon">
-            <img v-lazy="item.song.album.blurPicUrl">
-          </div>
+        <li class="item" v-for="(item, index) in recommendMusic" :key="index">
+          <!-- <div class="icon" v-for="(pic, index) in item.album" :key="index">
+            <img v-lazy="pic.PicUrl">
+          </div> -->
           <p class="text">{{item.name}}</p>
-          <p class="singer">{{item.song.artists}}</p>
+          <!-- <p v-for="(singer, index) in item.song" :key="index">
+            <p class="singer">{{singer.artists.name}}</p>
+          </p> -->
         </li>
       </ul>
     </div>
@@ -60,6 +62,7 @@ export default class Recommend extends Vue {
         // res.data就是返回的json对象
         // 至于后面的 result这个是由json的结构决定的
         this.playList = res.data.result
+        console.log(this.playList)
       } else {
         console.error('getRecommendList 获取失败')
       }
@@ -70,7 +73,12 @@ export default class Recommend extends Vue {
   _getRecommendMusic () : void {
     getRecommendMusic().then((res) => {
       if(res.status === ERR_OK) {
-        this.recommendMusic = res.data.result
+        this.recommendMusic = res.data.result.song
+        // let music = res.data.result
+        // for (let key in music) {
+        //   this.recommendMusic = music[key]
+        //   console.log(this.recommendMusic);
+        // }
       } else {
         console.error('getRecommendMusic 获取失败')
       }
