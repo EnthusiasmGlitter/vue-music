@@ -7,14 +7,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import Vue from "vue";
+import Component from "vue-class-component";
 
 @Component({})
-
-export default class Singer extends Vue{
-
-  msg: string = "singer"
-  
+export default class Singer extends Vue {
+  msg: string = "singer";
 }
 </script>
