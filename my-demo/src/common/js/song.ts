@@ -1,15 +1,17 @@
-
-interface SongCreator {
-  new(id: number, singer: string, name: string, album: any, image: string): Song;
+export interface SongCreator {
+  new(image: string, name: string): songInterface;
 }
 
-export function createRecommendSong (ctor: SongCreator, id: number, singer: string, name: string, album: any, image: string):songInterface{
-  return new ctor(id, singer, name, album, image);
-  
+ export interface songInterface {
 }
 
-export class Song {
-   constructor(id: number, singer: string, name: string, album: any, image: string) {
+export function createRecommendSong(ctor: SongCreator, image: string, name: string): songInterface {
+  return new ctor(image, name);
+}
+
+export class Song implements songInterface {
+  constructor(image: string, name: string) {
   }
 }
+
 

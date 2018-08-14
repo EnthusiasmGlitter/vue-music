@@ -9,7 +9,7 @@
             <img v-lazy="item.picUrl">
           </div>
           <p class="play-count">
-            <i class="fa fa-headphones"></i>
+            <img src="../../assets/headset.png" alt="" class="headset">
             {{Math.floor(item.playCount / 10000)}}万
           </p>
           <div class="text">
@@ -20,7 +20,7 @@
     </div>
     <div class="recommend-song" ref="recommendSong">
       <h1 class="title">最近新曲</h1>
-      <ul>
+      <!-- <ul>
         <li class="item" v-for="item in recommendMusic" :key="item.id">
           <div class="icon">
             <img v-lazy="item.image">
@@ -28,7 +28,7 @@
             <p class="text">{{item.name}}</p>
             <p class="singer">{{item.singer}}</p>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { getRecommendList, getRecommendMusic } from "../../api/recommend";
 import { ERR_OK } from "../../common/js/config";
-import { createRecommendSong } from "../../common/js/song";
+import { createRecommendSong, SongCreator, songInterface} from "../../common/js/song";
 import { mapMutations, mapActions } from "vuex";
 
 @Component({})
@@ -49,12 +49,9 @@ export default class Recommend extends Vue {
   created() {
     this._getRecommendList();
     this._getRecommendMusic();
-    this._getaa();
   }
 
-  _getaa(): void{
-    this.aa = createDog();
-  }
+ 
   _getRecommendList(): void {
     getRecommendList().then(res => {
       if (res.status === ERR_OK) {
@@ -71,7 +68,10 @@ export default class Recommend extends Vue {
   _getRecommendMusic(): void {
     getRecommendMusic().then(res => {
       if (res.status === ERR_OK) {
-        this.recommendMusic = res.data.result;
+        let list = res.data.result.map((item: Array<any>) => {
+          //  console.log(createRecommendSong([],'item', 'item'));
+           console.log(item)
+        })
       } else {
         console.error("getRecommendMusic 获取失败");
       }
@@ -133,6 +133,11 @@ export default class Recommend extends Vue {
         right: 8px;
         font-size: $f10;
         color: $color-text-l;
+      }
+      .headset{
+        width: 15px;
+        height: 15px;
+        vertical-align: middle;
       }
       .text {
         float: left;

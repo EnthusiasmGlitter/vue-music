@@ -2,7 +2,7 @@
   <div id="app">
     <m-header></m-header>
     <tab></tab>
-    <scroll></scroll>
+    <!-- <scroll></scroll> -->
     <!-- keep-alive主要用于保留组件状态或避免重新渲染。 -->
     <keep-alive>
       <router-view/>
