@@ -34,16 +34,12 @@ export default class tab extends Vue{
   line-height: 44px;
   height: 44px;
   width: 100%;
-  font-size: $f14;
   background: $color-theme;
   .tab-item {
-    // 如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）
     flex: 1;
-    // 垂直
     text-align: center;
     color: $color-text-lm;
     span {
-      // display: inline-block;
       padding-bottom: 3px;
     }
     &.router-link-active {

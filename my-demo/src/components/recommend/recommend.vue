@@ -3,7 +3,7 @@
     <div class="recommend-list" ref="recommendList">
       <h1 class="title">推荐歌单</h1>
       <ul>
-        <li class="item" v-for="item in playList.slice(0, 6)" :key="item.id">
+        <li class="item" v-for="item in playList" :key="item.id">
           <div class="icon">
             <div class="gradients"></div>
             <img v-lazy="item.picUrl">
@@ -20,15 +20,15 @@
     </div>
     <div class="recommend-song" ref="recommendSong">
       <h1 class="title">最近新曲</h1>
-      <!-- <ul>
+      <ul>
         <li class="item" v-for="item in recommendMusic" :key="item.id">
           <div class="icon">
-            <img v-lazy="item.image">
+            <img v-lazy="item.song.album.picUrl">
           </div>
-            <p class="text">{{item.name}}</p>
-            <p class="singer">{{item.singer}}</p>
+            <p class="text">{{item.song.album.name}}</p>
+            <p class="singer">{{item.song.artists[0].name}}</p>
         </li>
-      </ul> -->
+      </ul>
     </div>
   </div>
 </template>
@@ -38,7 +38,6 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { getRecommendList, getRecommendMusic } from "../../api/recommend";
 import { ERR_OK } from "../../common/js/config";
-import { createRecommendSong, SongCreator, songInterface} from "../../common/js/song";
 import { mapMutations, mapActions } from "vuex";
 
 @Component({})
@@ -57,7 +56,7 @@ export default class Recommend extends Vue {
       if (res.status === ERR_OK) {
         // res.data就是返回的json对象
         // 至于后面的 result这个是由json的结构决定的
-        this.playList = res.data.result;
+        this.playList = res.data.result.slice(0, 6);
         console.log(this.playList);
       } else {
         console.error("getRecommendList 获取失败");
@@ -68,10 +67,8 @@ export default class Recommend extends Vue {
   _getRecommendMusic(): void {
     getRecommendMusic().then(res => {
       if (res.status === ERR_OK) {
-        let list = res.data.result.map((item: Array<any>) => {
-          //  console.log(createRecommendSong([],'item', 'item'));
-           console.log(item)
-        })
+        let list = res.data.result.slice(0, 6);
+        this.recommendMusic = list;
       } else {
         console.error("getRecommendMusic 获取失败");
       }
@@ -95,7 +92,7 @@ export default class Recommend extends Vue {
       line-height: 65px;
       padding-left: 1.5%;
       text-align: left;
-      font-size: $f14;
+      font-size: .875rem;
       font-weight: bold;
       color: $color-text;
     }
@@ -131,7 +128,7 @@ export default class Recommend extends Vue {
         position: absolute;
         top: 5px;
         right: 8px;
-        font-size: $f10;
+        font-size: .625rem;
         color: $color-text-l;
       }
       .headset{
@@ -147,7 +144,7 @@ export default class Recommend extends Vue {
         line-height: 16px;
         overflow: hidden;
         margin-bottom: 10px;
-        font-size: $f11;
+        font-size: .625rem;
       }
     }
   }
@@ -161,7 +158,7 @@ export default class Recommend extends Vue {
       line-height: 65px;
       padding-left: 1.5%;
       text-align: left;
-      font-size: $f14;
+      font-size: .875rem;
       font-weight: bold;
       color: $color-text;
     }
@@ -187,14 +184,14 @@ export default class Recommend extends Vue {
         text-align: left;
         height: 16px;
         @include no-wrap();
-        font-size: $f11;
+        font-size: .625rem;
       }
       .singer {
         line-height: 16px;
         margin-bottom: 10px;
         text-align: left;
         @include no-wrap();
-        font-size: $f11;
+        font-size: .625rem;
         color: $color-text-g;
       }
     }
