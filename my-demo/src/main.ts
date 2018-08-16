@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueLazyload from 'vue-lazyload'
+// import 'swiper/dist/css/swiper.css'
+// import 'swiper/dist/js/swiper.js';
 
 Vue.config.productionTip = false
 

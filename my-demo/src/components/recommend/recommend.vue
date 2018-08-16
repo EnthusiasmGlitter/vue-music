@@ -1,5 +1,32 @@
 <template>
   <div class="recommend">
+    <scroll></scroll>
+    <div class="recommend-type">
+      <router-link to="/fm">
+        <div class="icon-type">
+          <img src="../../assets/radio1.png" alt="">
+          <span>私人FM</span>
+        </div>
+      </router-link>
+      <router-link to="/push">
+        <div class="icon-type">
+          <img src="../../assets/calendar1.png" alt="">
+          <span>每日推荐</span>
+        </div>
+      </router-link>
+      <router-link to="/song">
+        <div class="icon-type">
+          <img src="../../assets/song1.png" alt="">
+          <span>歌单</span>
+        </div>
+      </router-link>
+      <router-link to="/rank">
+        <div class="icon-type">
+          <img src="../../assets/rank1.png" alt="">
+          <span>排行榜</span>
+        </div>
+      </router-link>
+    </div>
     <div class="recommend-list" ref="recommendList">
       <h1 class="title">推荐歌单</h1>
       <ul>
@@ -9,7 +36,7 @@
             <img v-lazy="item.picUrl">
           </div>
           <p class="play-count">
-            <img src="../../assets/headset.png" alt="" class="headset">
+            <img src="../../assets/music-acc.png" alt="" class="headset">
             {{Math.floor(item.playCount / 10000)}}万
           </p>
           <div class="text">
@@ -36,11 +63,16 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import Swiper from 'swiper'
 import { getRecommendList, getRecommendMusic } from "../../api/recommend";
 import { ERR_OK } from "../../common/js/config";
-import { mapMutations, mapActions } from "vuex";
+import Scroll from '../scroll/scroll.vue';
 
-@Component({})
+@Component({
+  components: {
+    Scroll
+  }
+})
 export default class Recommend extends Vue {
   playList: any[] = [];
   recommendMusic: any[] = [];
@@ -82,19 +114,41 @@ export default class Recommend extends Vue {
 @import "../../common/scss/mixin";
 @import "../../common/scss/reset";
 .recommend {
+  margin-top: 76px;
+  .recommend-type{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    .icon-type{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img{
+        display: flex;
+        width: 50px;
+        height: 50px;
+      }
+      span{
+        display: flex;
+        font-size: .625rem;
+        color: $color-text;
+        font-weight: bold;
+        padding: 8px 0 12px 0;
+      }
+    }
+  }
   .recommend-list {
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    text-align: center;
+    border-top: 1px solid $color-cutoff;
     .title {
-      height: 65px;
-      line-height: 65px;
-      padding-left: 1.5%;
-      text-align: left;
-      font-size: .875rem;
+      display: inline-block;
+      font-size: .9375rem;
       font-weight: bold;
       color: $color-text;
+      padding: 10px 0 15px 1.5%;
     }
     .item {
       display: inline-block;
@@ -132,15 +186,14 @@ export default class Recommend extends Vue {
         color: $color-text-l;
       }
       .headset{
-        width: 15px;
-        height: 15px;
-        vertical-align: middle;
+        width: .875rem;
+        height: .875rem;
+        vertical-align: sub;
       }
       .text {
         float: left;
         line-height: 16px;
         text-align: left;
-        height: 40px;
         line-height: 16px;
         overflow: hidden;
         margin-bottom: 10px;
@@ -152,15 +205,12 @@ export default class Recommend extends Vue {
     margin-top: -20px;
     box-sizing: border-box;
     width: 100%;
-    text-align: center;
     .title {
-      height: 65px;
-      line-height: 65px;
-      padding-left: 1.5%;
-      text-align: left;
-      font-size: .875rem;
+      display: inline-block;
+      font-size: .9375rem;
       font-weight: bold;
       color: $color-text;
+      padding: 10px 0 15px 1.5%;
     }
     .item {
       display: inline-block;
