@@ -115,7 +115,7 @@ export default class Rank extends Vue {
     }
     span {
       font-size: 1rem;
-      color: $text-defalut;
+      color: $white;
     }
   }
   .official-rank{

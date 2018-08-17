@@ -29,19 +29,25 @@
     <div class="preferred">
       <div class="subtitle">
         <span>今日优选</span>
-        <span><em></em>换一换</span>
+        <span><img src="../../assets/change.png" alt="" class="switch"> 换一换</span>
       </div>
     </div>
+    <!-- <router-view></router-view> -->
+    <alert-like></alert-like>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component';
+import Vue from "vue";
+import Component from "vue-class-component";
+import Alertlike from "../alert-like/alert-like.vue";
 
-@Component({})
-
-export default class transceiver extends Vue{
+@Component({
+  components: {
+    Alertlike,
+  }
+})
+export default class transceiver extends Vue {
   
 }
 </script>
@@ -50,52 +56,59 @@ export default class transceiver extends Vue{
 @import "../../common/scss/variable";
 @import "../../common/scss/mixin";
 @import "../../common/scss/reset";
-.transceiver{
-  .transceiver-type{
+.transceiver {
+  .transceiver-type {
     width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    .icon-type{
+    .icon-type {
       display: flex;
       flex-direction: column;
       align-items: center;
-      img{
+      img {
         display: flex;
         width: 50px;
         height: 50px;
       }
-      span{
+      span {
         display: flex;
-        font-size: .625rem;
+        font-size: 0.625rem;
         color: $text-defalut;
         font-weight: bold;
         padding: 8px 0 12px 0;
       }
     }
   }
-  .preferred{
+  .preferred {
     width: 100%;
-    .subtitle{
+    .subtitle {
       width: 94.6%;
       margin: auto;
       display: flex;
       justify-content: space-between;
-      span{
+      span {
         position: relative;
         display: flex;
-        &:first-child{
-          font-size: .875rem;
+        &:first-child {
+          font-size: 0.875rem;
           color: $sub-text;
+          font-weight: bold;
         }
-        &:last-child{
-          font-size: .625rem;
+        &:last-child {
+          font-size: 0.625rem;
           color: $grey2;
         }
-        em{
+        em {
           position: absolute;
           top: 0;
           left: 0;
+        }
+        .switch {
+          width: 12px;
+          height: 12px;
+          vertical-align: middle;
+          margin-right: 5px;
         }
       }
     }
