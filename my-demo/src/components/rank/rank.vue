@@ -105,7 +105,7 @@ export default class Rank extends Vue {
     height: 45px;
     line-height: 45px;
     position: fixed;
-    background: $color-theme;
+    background: $theme;
     display: block;
     img {
       width: 22px;
@@ -115,7 +115,7 @@ export default class Rank extends Vue {
     }
     span {
       font-size: 1rem;
-      color: $title-defalut;
+      color: $text-defalut;
     }
   }
   .official-rank{
@@ -182,7 +182,7 @@ export default class Rank extends Vue {
         bottom: 25px;
         left: 8px;
         font-size: .625rem;
-        color: $color-text-l;
+        color: $mark-white;
       }
       .text {
         float: left;

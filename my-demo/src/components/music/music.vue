@@ -1,6 +1,6 @@
 <template>
-  <div class="friends">
-
+  <div class="music">
+    <m-header></m-header>
   </div>
 </template>
 
@@ -10,13 +10,7 @@ import Component from 'vue-class-component';
 
 @Component({})
 
-export default class friends extends Vue{
+export default class music extends Vue{
   
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
-
-

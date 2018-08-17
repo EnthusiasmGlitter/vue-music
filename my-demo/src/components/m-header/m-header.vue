@@ -3,14 +3,14 @@
     <div class="nav">
       <div class="item">
         <router-link to="/login">
-          <img src="../../assets/menu2.png" alt="" class="icon">
+          <img src="../../assets/menu.png" alt="" class="icon">
         </router-link>
       </div>
       <div class="item">
         <router-link to="/music">
-          <img src="../../assets/music3.png" alt="" class="icon">
+          <img src="../../assets/music.png" alt="" class="icon">
         </router-link>
-        <router-link to="/wangyi">
+        <router-link to="/wangyi/recommend">
           <img src="../../assets/wangyi.png" alt="" class="icon">
         </router-link>
         <router-link to="/video">
@@ -19,20 +19,9 @@
       </div>
       <div class="item">
         <router-link to="/search">
-          <img src="../../assets/search1.png" alt="" class="icon">
+          <img src="../../assets/search.png" alt="" class="icon">
         </router-link>
       </div>
-    </div>
-    <div class="tab">
-      <router-link class="tab-item" to="/recommend">
-        <span>推荐</span>
-      </router-link>
-      <router-link class="tab-item" to="/friends">
-        <span>朋友</span>
-      </router-link>
-      <router-link class="tab-item" to="/transceiver">
-        <span>电台</span>
-      </router-link>
     </div>
   </div>
 </template>
@@ -60,7 +49,7 @@ export default class Mheader extends Vue{
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: $color-theme;
+  background: $theme;
   padding-top: 10px;
   .nav{
     display: flex;
@@ -88,28 +77,5 @@ export default class Mheader extends Vue{
       }
     }
   }
-  .tab{
-  display: flex;
-  line-height: 44px;
-  height: 44px;
-  width: 100%;
-  background: $color-theme;
-  .tab-item {
-    flex: 1;
-    text-align: center;
-    color: #fff;
-    font-size: .875rem;
-    span {
-      padding-bottom: 3px;
-    }
-    &.router-link-active {
-      span {
-        font-weight: bold;
-        color: $color-text-l;
-        border-bottom: 2px solid $color-text-l
-      }
-    }
-  }
-}
 }
 </style>

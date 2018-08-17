@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import recommend from '@/components/recommend/recommend.vue'
 import wangyi from '@/components/wangyi/wangyi.vue'
+import recommend from '@/components/recommend/recommend.vue'
+import transceiver from '@/components/transceiver/transceiver.vue'
+import friends from '@/components/friends/friends.vue'
 import rank from '@/components/rank/rank.vue'
 import singer from '@/components/singer/singer.vue'
 
@@ -19,6 +21,16 @@ export default new Router({
           path: '/wangyi/recommend',
           name: 'recommend',
           component: recommend
+        },
+        {
+          path: '/wangyi/transceiver',
+          name: 'transceiver',
+          component: transceiver
+        },
+        {
+          path: '/wangyi/friends',
+          name: 'friends',
+          component: friends
         }
       ]
     },

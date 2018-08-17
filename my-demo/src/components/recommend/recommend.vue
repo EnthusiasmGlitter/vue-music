@@ -4,25 +4,25 @@
     <div class="recommend-type">
       <router-link to="/fm">
         <div class="icon-type">
-          <img src="../../assets/radio1.png" alt="">
+          <img src="../../assets/radio.png" alt="">
           <span>私人FM</span>
         </div>
       </router-link>
       <router-link to="/push">
         <div class="icon-type">
-          <img src="../../assets/calendar1.png" alt="">
+          <img src="../../assets/calendar.png" alt="">
           <span>每日推荐</span>
         </div>
       </router-link>
       <router-link to="/song">
         <div class="icon-type">
-          <img src="../../assets/song1.png" alt="">
+          <img src="../../assets/song.png" alt="">
           <span>歌单</span>
         </div>
       </router-link>
       <router-link to="/rank">
         <div class="icon-type">
-          <img src="../../assets/rank1.png" alt="">
+          <img src="../../assets/rank.png" alt="">
           <span>排行榜</span>
         </div>
       </router-link>
@@ -132,7 +132,7 @@ export default class Recommend extends Vue {
       span{
         display: flex;
         font-size: .625rem;
-        color: $color-text;
+        color: $text-defalut;
         font-weight: bold;
         padding: 8px 0 12px 0;
       }
@@ -142,12 +142,12 @@ export default class Recommend extends Vue {
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    border-top: 1px solid $color-cutoff;
+    border-top: 1px solid $cutoff;
     .title {
       display: inline-block;
       font-size: .9375rem;
       font-weight: bold;
-      color: $color-text;
+      color: $text-defalut;
       padding: 10px 0 15px 1.5%;
     }
     .item {
@@ -183,7 +183,7 @@ export default class Recommend extends Vue {
         top: 5px;
         right: 8px;
         font-size: .625rem;
-        color: $color-text-l;
+        color: $mark-white;
       }
       .headset{
         width: .875rem;
@@ -209,7 +209,7 @@ export default class Recommend extends Vue {
       display: inline-block;
       font-size: .9375rem;
       font-weight: bold;
-      color: $color-text;
+      color: $text-defalut;
       padding: 10px 0 15px 1.5%;
     }
     .item {
@@ -242,7 +242,7 @@ export default class Recommend extends Vue {
         text-align: left;
         @include no-wrap();
         font-size: .625rem;
-        color: $color-text-g;
+        color: $grey1;
       }
     }
   }

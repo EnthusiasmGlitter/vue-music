@@ -1,6 +1,7 @@
 <template>
   <div class="wangyi">
     <m-header></m-header>
+    <tab></tab>
     <router-view></router-view>
   </div>
 </template>
@@ -9,11 +10,13 @@ import Vue from 'vue'
 import Component from 'vue-class-component';
 import MHeader from '../m-header/m-header.vue'
 import recommend from '../recommend/recommend.vue'
+import tab from '../tab/tab.vue'
 
 @Component({
   components: {
     MHeader,
-    recommend
+    recommend,
+    tab,
   }
 })
 
