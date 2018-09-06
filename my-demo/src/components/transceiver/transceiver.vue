@@ -32,7 +32,6 @@
         <span><img src="../../assets/change.png" alt="" class="switch"> 换一换</span>
       </div>
     </div>
-    <!-- <router-view></router-view> -->
     <alert-like></alert-like>
   </div>
 </template>
